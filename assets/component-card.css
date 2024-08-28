@@ -593,3 +593,22 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+
+/* lop changes */
+.card.card--card .card__heading{
+  font-size:1.8rem;
+  font-weight: 600;
+}
+
+.card.card--card .card--media .card__inner .card__content {
+  padding: calc(var(--image-padding) + 1rem) 0;
+}
+
+
+.card.card--card .card__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
