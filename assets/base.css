@@ -2887,6 +2887,22 @@ details-disclosure > details {
   }
 }
 
+.card__badge.status--on_sale .badge{
+  --color-badge-background: var(--color-blue);
+}
+
+.card__badge.status--sold_out .badge{
+  --color-badge-background: var(--color-grey);
+}
+
+.card__badge.status--new .badge{
+  --color-badge-background: var(--color-red);
+}
+
+.card__badge.badge--free-shipping .badge{
+  --color-badge-background: var(--color-green);
+}
+
 .badge {
   border: 1px solid transparent;
   border-radius: var(--badge-corner-radius);
@@ -2900,7 +2916,10 @@ details-disclosure > details {
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
   color: rgb(var(--color-badge-foreground));
   word-break: break-word;
+  text-transform: uppercase;
+
 }
+
 
 .gradient {
   background: rgb(var(--color-background));
@@ -3569,14 +3588,16 @@ details-disclosure > details {
 
 /* Lop variables */
 :root{
-  --color-black: #2B2D38;
-  --color-grey-dark: #5E5E5E;
-  --color-grey-soft: #C7C7C7;
-  --color-white: #FFFFFF;
-  --color-blue-dark: #233655;
-  --color-blue: #4266A2;
-  --color-green: #46962B;
-  --color-red: #D94848;
+  --color-black: 43, 45, 56;
+  
+  --color-grey-dark: 94, 94, 94;
+  --color-grey: 120, 120, 120;
+  --color-grey-soft: 199, 199, 199;
+  --color-white: 255, 255, 255;
+  --color-blue-dark: 35, 54, 85;
+  --color-blue: 66, 102, 162;
+  --color-green: 70, 150, 43;
+  --color-red: 217, 72, 72;
 
   --title-letter-spacing: -1.29px
 }
