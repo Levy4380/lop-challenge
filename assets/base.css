@@ -2903,21 +2903,36 @@ details-disclosure > details {
   --color-badge-background: var(--color-green);
 }
 
+.discount_badge .badge{
+  --color-badge-background: var(--color-blue-dark);
+}
+
+.discount_badge{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .badge {
   border: 1px solid transparent;
   border-radius: var(--badge-corner-radius);
   display: inline-block;
   font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+  font-weight: 600;
   line-height: 1;
-  padding: 0.5rem 1.3rem 0.6rem 1.3rem;
+  padding: 2px 9px;
   text-align: center;
   background-color: rgb(var(--color-badge-background));
   border-color: rgba(var(--color-badge-border), var(--alpha-badge-border));
   color: rgb(var(--color-badge-foreground));
   word-break: break-word;
   text-transform: uppercase;
-
+  letter-spacing: 0.44px;
+}
+@media screen and (max-width: 990px) {
+  .badge {
+    font-size: 1.1rem;
+  }
 }
 
 
