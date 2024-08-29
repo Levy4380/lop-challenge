@@ -118,6 +118,9 @@
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
       "on_sale": "Sale",
+      "new": "New",
+      "free_shipping": "Free shipping",
+      "installments": "Up to 6 interest-free installments",
       "product_variants": "Product variants",
       "media": {
         "gallery_viewer": "Gallery Viewer",
