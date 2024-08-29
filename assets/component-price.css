@@ -106,7 +106,12 @@
 
 .price-item--regular,
 .price--on-sale .price-item--sale{
-  font-size: 2.2rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
 
 .price--on-sale .price-item--regular{
