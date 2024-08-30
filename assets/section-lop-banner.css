@@ -1,0 +1,15 @@
+.lop-banner-wrapper .slide_image {
+    height: 100%;
+    overflow: hidden;
+    height: 60vh;
+
+}
+
+.lop-banner-wrapper .slide_image img{
+}
+
+@media screen and (min-width: 750px) {
+    .lop-banner-wrapper .slide_image{
+        margin-right: 5%;
+    }
+}
