@@ -1,3 +1,17 @@
+/* Deletes browser styles */
+* + ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@font-face
+{
+    font-family: 'FontAwesome';
+    font-weight: 900;
+    src: url('fa-solid-900.ttf');
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -79,7 +93,13 @@
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
+}
+
+@media screen and (min-width: 990px) {
+  .page-width {
+    padding: 0 1.5rem;
+  }
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -3602,6 +3622,7 @@ details-disclosure > details {
 }
 
 /* Lop variables */
+
 :root{
   --color-black: 43, 45, 56;
   
@@ -3616,5 +3637,84 @@ details-disclosure > details {
 
   --title-letter-spacing: -1.29px
 }
+
+/* Styles for slick slider */
+.slick-slider .slick-dots{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.slick-slider .slick-dots button{
+  position: relative;
+  background-color: transparent;
+  border: none;
+  color: transparent;
+}
+
+.slick-slider .slick-dots button::after{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 2px solid rgb(var(--color-blue-dark));
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.slick-slider .slick-dots .slick-active button::after{
+  background-color: rgb(var(--color-blue-dark));
+}
+
+.slick-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: max-content;
+    height: 20px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+    z-index: 1;
+}
+
+.slick-slider .slick-next{
+  right: -15px;
+}
+
+.slick-slider .slick-prev{
+  left: -15px;
+}
+
+.slick-slider .slick-prev:before, 
+.slick-slider .slick-next:after {
+  font-family: 'FontAwesome';
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1;
+  color: rgb(var(--color-blue-dark));
+}
+
+.slick-slider .slick-next:after {
+  content: '\f054';
+}
+
+.slick-slider .slick-prev:before {
+  content: '\f053';
+}
+
+
+
 
 
