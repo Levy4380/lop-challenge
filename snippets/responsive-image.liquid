@@ -5,29 +5,22 @@
         align-content: center;
         justify-content: center;
         align-items: center;
-    }
-
-    .responsive-image img{
-        width: auto;
-        height: 100%;
+        position: relative;
     }
 {% endstyle %}
+
 <div class="responsive-image">
-    <img
-      srcset="
-        {%- if image.width >= 533 -%}{{ image | image_url: width: 533 }} 533w,{%- endif -%}
-        {%- if image.width >= 720 -%}{{ image | image_url: width: 720 }} 720w,{%- endif -%}
-        {%- if image.width >= 940 -%}{{ image | image_url: width: 940 }} 940w,{%- endif -%}
-        {%- if image.width >= 1066 -%}{{ image | image_url: width: 1066 }} 1066w,{%- endif -%}
-        {{ image | image_url }} {{ image.width }}w
-      "
-      src="{{ image | image_url: width: 533 }}"
-      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-      alt="{{ image.alt | escape }}"
-      class="motion-reduce"
-      {% unless lazy_load == false %}
-        loading="lazy"
-      {% endunless %}
-      width="{{ image.width }}"
-      height="{{ image.height }}" />
+      {%- liquid
+        assign image_height = image.width | divided_by: image.aspect_ratio 
+      -%}
+      {{
+        image
+        | image_url: width: 3840
+        | image_tag:
+          width: image.width,
+          height: image_height,
+          class: image_class,
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+      }}
     </div>
