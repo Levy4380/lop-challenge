@@ -35,7 +35,10 @@
         {% case block.type %}
           {% when 'banner-with-slider' %}
             <div class="banner-with-slider-wrapper block-item">
-              <div class="slide-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--animation-order: 1;">
+              <div
+                class="slide-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                style="--animation-order: 1;"
+              >
                 <div class="slide-image ">
                   {% if block.settings.image_1 != blank %}
                     {% render 'responsive-image', image: block.settings.image_1 %}
@@ -47,7 +50,10 @@
                   <span class="content-heading">Lorem ipsum</span>
                 </div>
               </div>
-              <div class="slide-container {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--animation-order: 2;">
+              <div
+                class="slide-container {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                style="--animation-order: 2;"
+              >
                 <div class="slide-image ">
                   {% if block.settings.image_2 != blank %}
                     {% render 'responsive-image', image: block.settings.image_2 %}
@@ -59,7 +65,10 @@
                   <span class="content-heading">Lorem ipsum</span>
                 </div>
               </div>
-              <div class="slide-container  {% if block.settings.image_3 != blank %} media-container {% else %} --with-placeholder{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--animation-order: 3;">
+              <div
+                class="slide-container  {% if block.settings.image_3 != blank %} media-container {% else %} --with-placeholder{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                style="--animation-order: 3;"
+              >
                 <div class="slide-image">
                   {% if block.settings.image_3 != blank %}
                     {% render 'responsive-image', image: block.settings.image_3 %}
@@ -87,7 +96,10 @@
               id="static-banner--{{ forloop.index }}"
               style="--placeholder-height: {{ 85 | divided_by: max_ratio  }}dvw"
             >
-              <div class="banner-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--animation-order: 1;">
+              <div
+                class="banner-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                style="--animation-order: 1;"
+              >
                 <div class="banner-image ">
                   {% if block.settings.image_1 != blank %}
                     {% render 'responsive-image', image: block.settings.image_1 %}
@@ -99,7 +111,10 @@
                   <span class="content-heading">Lorem ipsum</span>
                 </div>
               </div>
-              <div class="banner-container  {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="--animation-order: 2;">
+              <div
+                class="banner-container  {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                style="--animation-order: 2;"
+              >
                 <div class="banner-image">
                   {% if block.settings.image_2 != blank %}
                     {% render 'responsive-image', image: block.settings.image_2 %}
@@ -248,18 +263,18 @@
         {
           "type": "select",
           "id": "vertical_alignment",
-          "options":[
+          "options": [
             {
-            "label": "Abajo",
-            "value": "bottom"
+              "label": "Abajo",
+              "value": "bottom"
             },
             {
-            "label": "Center",
-            "value": "center"
+              "label": "Center",
+              "value": "center"
             },
             {
-            "label": "Arriba",
-            "value": "top"
+              "label": "Arriba",
+              "value": "top"
             }
           ],
           "default": "center",
@@ -268,18 +283,18 @@
         {
           "type": "select",
           "id": "lateral_alignment",
-          "options":[
+          "options": [
             {
-            "label": "Izquierda",
-            "value": "left"
+              "label": "Izquierda",
+              "value": "left"
             },
             {
-            "label": "Centro",
-            "value": "center"
+              "label": "Centro",
+              "value": "center"
             },
             {
-            "label": "Derecha",
-            "value": "right"
+              "label": "Derecha",
+              "value": "right"
             }
           ],
           "default": "center",
@@ -304,18 +319,18 @@
         {
           "type": "select",
           "id": "vertical_alignment",
-          "options":[
+          "options": [
             {
-            "label": "Abajo",
-            "value": "bottom"
+              "label": "Abajo",
+              "value": "bottom"
             },
             {
-            "label": "Center",
-            "value": "center"
+              "label": "Center",
+              "value": "center"
             },
             {
-            "label": "Arriba",
-            "value": "top"
+              "label": "Arriba",
+              "value": "top"
             }
           ],
           "default": "center",
@@ -324,18 +339,18 @@
         {
           "type": "select",
           "id": "lateral_alignment",
-          "options":[
+          "options": [
             {
-            "label": "Izquierda",
-            "value": "left"
+              "label": "Izquierda",
+              "value": "left"
             },
             {
-            "label": "Centro",
-            "value": "center"
+              "label": "Centro",
+              "value": "center"
             },
             {
-            "label": "Derecha",
-            "value": "right"
+              "label": "Derecha",
+              "value": "right"
             }
           ],
           "default": "center",
