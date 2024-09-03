@@ -36,58 +36,85 @@
           {% when 'banner-with-slider' %}
             <div class="banner-with-slider-wrapper block-item">
               <div
-                class="slide-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="slide-container 
+                  {% if block.settings.slide_image_1 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
                 style="--animation-order: 1;"
               >
                 <div class="slide-image ">
-                  {% if block.settings.image_1 != blank %}
-                    {% render 'responsive-image', image: block.settings.image_1 %}
+                  {% if block.settings.slide_image_1 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_1 %}
                   {% else %}
                     {{ 'collection-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}} ">
-                  <span class="content-heading">Lorem ipsum</span>
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_1 }}">{{ block.settings.slide_heading_1 }}</a>
                 </div>
               </div>
               <div
-                class="slide-container {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="slide-container 
+                  {% if block.settings.slide_image_2 != blank %} 
+                    media-container
+                  {% else %} 
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
                 style="--animation-order: 2;"
               >
                 <div class="slide-image ">
-                  {% if block.settings.image_2 != blank %}
-                    {% render 'responsive-image', image: block.settings.image_2 %}
+                  {% if block.settings.slide_image_2 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_2 %}
                   {% else %}
                     {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
-                  <span class="content-heading">Lorem ipsum</span>
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_2 }}">{{ block.settings.slide_heading_2 }}</a>
                 </div>
               </div>
               <div
-                class="slide-container  {% if block.settings.image_3 != blank %} media-container {% else %} --with-placeholder{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="slide-container
+                  {% if block.settings.slide_image_3 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
                 style="--animation-order: 3;"
               >
                 <div class="slide-image">
-                  {% if block.settings.image_3 != blank %}
-                    {% render 'responsive-image', image: block.settings.image_3 %}
+                  {% if block.settings.slide_image_3 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_3 %}
                   {% else %}
                     {{ 'collection-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
-                  <span class="content-heading">Lorem ipsum</span>
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_3 }}">{{ block.settings.slide_heading_3 }}</a>
                 </div>
               </div>
             </div>
           {% when 'static-banner' %}
             {% liquid
-              assign image_1_ratio = block.settings.image_1.aspect_ratio
-              assign image_2_ratio = block.settings.image_2.aspect_ratio
+              assign image_1_ratio = block.settings.banner_image_1.aspect_ratio
+              assign image_2_ratio = block.settings.banner_image_2.aspect_ratio
               assign max_ratio = image_1_ratio
 
-              if image_2_ratio > block.settings.image_1.aspect_ratio
+              if image_2_ratio > block.settings.banner_image_1.aspect_ratio
                 assign max_ratio = image_2_ratio
               endif
             %}
@@ -97,33 +124,51 @@
               style="--placeholder-height: {{ 85 | divided_by: max_ratio  }}dvw"
             >
               <div
-                class="banner-container {% if block.settings.image_1 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="banner-container
+                  {% if block.settings.banner_image_1 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
                 style="--animation-order: 1;"
               >
                 <div class="banner-image ">
-                  {% if block.settings.image_1 != blank %}
-                    {% render 'responsive-image', image: block.settings.image_1 %}
+                  {% if block.settings.banner_image_1 != blank %}
+                    {% render 'responsive-image', image: block.settings.banner_image_1 %}
                   {% else %}
                     {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
-                  <span class="content-heading">Lorem ipsum</span>
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.banner_url_1 }}">{{ block.settings.banner_heading_1 }}</a>
                 </div>
               </div>
               <div
-                class="banner-container  {% if block.settings.image_2 != blank %} media-container {% else %} --with-placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="banner-container
+                  {% if block.settings.banner_image_2 != blank %}
+                    media-container 
+                  {% else %} 
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
                 style="--animation-order: 2;"
               >
                 <div class="banner-image">
-                  {% if block.settings.image_2 != blank %}
-                    {% render 'responsive-image', image: block.settings.image_2 %}
+                  {% if block.settings.banner_image_2 != blank %}
+                    {% render 'responsive-image', image: block.settings.banner_image_2 %}
                   {% else %}
                     {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
-                  <span class="content-heading">Lorem ipsum</span>
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.banner_url_2 }}">{{ block.settings.banner_heading_2 }}</a>
                 </div>
               </div>
             </div>
@@ -160,7 +205,7 @@
       "type": "inline_richtext",
       "id": "title",
       "default": "Titulo sección",
-      "label": "t:sections.lop-banner.settings.title"
+      "label": "Titulo sección"
     },
     {
       "type": "select",
@@ -246,19 +291,64 @@
       "name": "Banner con slider",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "imagen 1"
+          "type": "header",
+          "content": "Primer slide"
         },
         {
           "type": "image_picker",
-          "id": "image_2",
-          "label": "imagen 2"
+          "id": "slide_image_1",
+          "label": "Imagen"
+        },
+        {
+        "type": "text",
+        "id": "slide_heading_1",
+        "label": "Heading",
+        "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "slide_url_1",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Segundo slide"
         },
         {
           "type": "image_picker",
-          "id": "image_3",
+          "id": "slide_image_2",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "slide_heading_2",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "slide_url_2",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Tercer slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_3",
           "label": "imagen 3"
+        },
+        {
+          "type": "text",
+          "id": "slide_heading_3",
+          "label": "Heading",
+          "default": "Lorem Ipsum"          
+        },
+        {
+          "type": "url",
+          "id": "slide_url_3",
+          "label": "Slide CTA"
         },
         {
           "type": "select",
@@ -307,14 +397,44 @@
       "name": "Banner estatico",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "imagen 1"
+          "type": "header",
+          "content": "Primer banner"
         },
         {
           "type": "image_picker",
-          "id": "image_2",
-          "label": "imagen 2"
+          "id": "banner_image_1",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "banner_heading_1",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "banner_url_1",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Segundo banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image_2",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "banner_heading_2",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "banner_url_2",
+          "label": "Slide CTA"
         },
         {
           "type": "select",
