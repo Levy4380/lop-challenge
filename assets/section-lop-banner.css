@@ -26,7 +26,7 @@
 }
 
 .lop-banner-wrapper .content .content-heading{
-    font-size: 28px;
+    font-size: 27px;
     font-weight: 900;
     text-transform: uppercase;
     line-height: normal;
@@ -34,7 +34,7 @@
 }
 
 .lop-banner-wrapper .banner-container .content .content-heading{
-    font-size: 38px;
+    font-size: 26px;
 }
 
 .lop-banner-wrapper .content.vertical-alignment--top{
@@ -119,12 +119,22 @@
 }
 
 @media screen and (max-width: 989px) {
-    .lop-banner-wrapper .banner-container.--with-placeholder{
+    
+    .lop-banner-wrapper .banner-container{
         height: var(--placeholder-height);
     }
 }
 
 @media screen and (min-width: 990px) {
+
+    .lop-banner-wrapper .content .content-heading{
+        font-size: 30px;
+    }
+
+    .lop-banner-wrapper .banner-container .content .content-heading{
+        font-size: 45px;
+    }
+
     .lop-banner-wrapper .slide-container {
         height: auto;
     }
