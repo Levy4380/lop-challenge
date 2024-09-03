@@ -168,7 +168,7 @@
                   {% endif %}
                 </div>
                 <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
-                  <a class="content-heading link" target="_blank" href="{{ block.settings.banner_url_2 }}">{{ block.settings.banner_heading_2 }}</a>
+                  <a class="content-heading link" target="_blank" {% if block.settings.banner_url_2 != blank %} href="{{ block.settings.banner_url_2 }}" {% endif %}>{{ block.settings.banner_heading_2 }}</a>
                 </div>
               </div>
             </div>
