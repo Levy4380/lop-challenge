@@ -106,16 +106,13 @@
 
 .price-item--regular,
 .price--on-sale .price-item--sale{
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
   display: flex;
   flex-direction: row;
   gap: 12px;
   font-weight: 900;
   letter-spacing: -1px;
-}
-
-.price--on-sale .price-item--regular{
-  font-size: 1rem;
 }
 
 @media screen and (min-width: 990px) {
