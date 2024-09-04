@@ -63,9 +63,11 @@
         -%}
       </div>
       <div class="product-installments">
-        {% if product.metafields.payment.installments %}
-          {{- 'products.product.installments' | t -}}
-        {% endif %}
+        <span>
+          {% if product.metafields.payment.installments %}
+            {{- 'products.product.installments' | t -}}
+          {% endif %}
+        </span>
       </div>
       <div class="product-add-to-cart">
         <div
@@ -73,6 +75,12 @@
           class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
           {{ block.shopify_attributes }}
         >
+          <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+            {{ 'products.product.quantity.label' | t }}
+            <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
+              {%- render 'loading-spinner' -%}
+            </span>
+          </label>
           <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
             <button class="quantity__button" name="minus" type="button">
               <span class="visually-hidden">
@@ -108,11 +116,17 @@
           <a href="https://www.lop.global" class="button button--primary" target="_blank"> Añadir al carrito </a>
         </div>
       </div>
-      <div class="zip-code-calculator">
-        <div class="input-wrapper">
-          <input class="zip-code-input">
+      <div class="zip-code-calculator" id="Zip-code-{{ section.id }}">
+        <div class="input-wrapper" id="Zip-code-{{ section.id }}">
+          <label class="zip-code-label form__label" for="Zip-code-{{ section.id }}">
+              Codigo postal
+          </label>
+          <input class="zip-code-input" >
         </div>
-        <div class="zip-code-button">
+        <div class="zip-code-button" for="Zip-code-button-{{ section.id }}">
+          <label class="zip-code-label form__label" for="Zip-code-button-{{ section.id }}">
+            No sé mi C.P
+          </label>
           <a href="https://www.lop.global" class=" button button--primary"> Calcular envio </a>
         </div>
       </div>
@@ -129,6 +143,14 @@
           </div>
         {% endfor %}
       </div>
+    </div>
+  </div>
+  <div class="lop-product product-description page-width">
+    <div class="description-heading">
+      Descripción
+    </div>
+    <div class="description-content">
+      {{ product.description }}
     </div>
   </div>
 </div>
