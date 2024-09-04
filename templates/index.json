@@ -6,6 +6,15 @@
         "banner_with_slider_LAq9kg": {
           "type": "banner-with-slider",
           "settings": {
+            "slide_image_1": "shopify:\/\/shop_images\/laundry.jpg",
+            "slide_heading_1": "Lorem Ipsum",
+            "slide_url_1": "https:\/\/lop.global\/",
+            "slide_image_2": "shopify:\/\/shop_images\/living.jpg",
+            "slide_heading_2": "Lorem Ipsum",
+            "slide_url_2": "https:\/\/lop.global\/",
+            "slide_image_3": "shopify:\/\/shop_images\/tablet-kitchen.jpg",
+            "slide_heading_3": "Lorem Ipsum",
+            "slide_url_3": "https:\/\/lop.global\/",
             "vertical_alignment": "bottom",
             "lateral_alignment": "center"
           }
@@ -13,6 +22,12 @@
         "static_banner_pDWrME": {
           "type": "static-banner",
           "settings": {
+            "banner_image_1": "shopify:\/\/shop_images\/kitchen.jpg",
+            "banner_heading_1": "Lorem Ipsum",
+            "banner_url_1": "https:\/\/lop.global\/",
+            "banner_image_2": "shopify:\/\/shop_images\/electronic.jpg",
+            "banner_heading_2": "Lorem Ipsum",
+            "banner_url_2": "https:\/\/lop.global\/",
             "vertical_alignment": "center",
             "lateral_alignment": "center"
           }
