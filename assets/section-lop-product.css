@@ -1,10 +1,12 @@
 .lop-product{
     display: flex;
+    margin-bottom: 10rem;
 }
 
 @media screen and (max-width: 750px) {
     .lop-product{
         flex-direction: column;
+        margin-bottom: 7.3rem;
     }
 }
 
@@ -160,6 +162,12 @@ to style shopify section preview */
     color: rgb(var(--color-grey-dark))
 }
 
+@media screen and (max-width:750px) {
+    .lop-product .product-info .product-installments{
+        margin: 0 0 35px 0;
+    }
+}
+
 .lop-product .product-info .product-shippng-badge .badge--free-shipping{
     display: flex;
 }
@@ -187,7 +195,7 @@ to style shopify section preview */
     justify-content: space-between;
     gap: 20px;
     align-items: flex-end;
-    margin: 0 0 21px 0;
+    margin: 0 0 41px 0;
 }
 
 .lop-product .product-add-to-cart .quantity{
@@ -233,6 +241,7 @@ to style shopify section preview */
 
 .zip-code-calculator .zip-code-button{
     flex: 1;
+    position: relative;
 }
 
 .zip-code-calculator .zip-code-button .button{
@@ -242,6 +251,11 @@ to style shopify section preview */
 
 .zip-code-calculator .input-wrapper{
     position:  relative;
+}
+
+.zip-code-calculator .form__label{
+    position: absolute;
+    top: -20px;
 }
 
 .zip-code-calculator .input-wrapper:after {
@@ -310,3 +324,28 @@ to style shopify section preview */
     margin: 0;
 }
 
+.lop-product.product-description{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.lop-product.product-description .description-heading{
+    font-size: 20px;
+    line-height: 14px;
+    margin-bottom: 17px;
+    color: rgb(var(--color-grey-dark));
+    font-weight: 700;
+}
+
+.lop-product.product-description .description-content{
+    font-size: 15px;
+    line-height: 21px;
+    color: rgb(var(--color-grey-soft));
+    margin: 0;
+}
+
+.lop-product.product-description .description-content p{
+    margin: 0;
+}
