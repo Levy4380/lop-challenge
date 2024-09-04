@@ -6,9 +6,6 @@
         "banner_with_slider_LAq9kg": {
           "type": "banner-with-slider",
           "settings": {
-            "image_1": "shopify:\/\/shop_images\/laundry.jpg",
-            "image_2": "shopify:\/\/shop_images\/living.jpg",
-            "image_3": "shopify:\/\/shop_images\/tablet-kitchen.jpg",
             "vertical_alignment": "bottom",
             "lateral_alignment": "center"
           }
@@ -16,8 +13,6 @@
         "static_banner_pDWrME": {
           "type": "static-banner",
           "settings": {
-            "image_1": "shopify:\/\/shop_images\/kitchen.jpg",
-            "image_2": "shopify:\/\/shop_images\/electronic.jpg",
             "vertical_alignment": "center",
             "lateral_alignment": "center"
           }
