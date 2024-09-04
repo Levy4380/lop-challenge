@@ -327,19 +327,19 @@ h1,
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+  font-size: calc(var(--font-heading-scale) * 3rem);
 }
 
 @media only screen and (min-width: 750px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    font-size: calc(var(--font-heading-scale) * 3.8rem);
   }
 }
 
 h3,
 .h3 {
-  font-size: calc(var(--font-heading-scale) * 1.7rem);
+  font-size: calc(var(--font-heading-scale) * 1.4rem);
 }
 
 @media only screen and (min-width: 750px) {
@@ -1210,7 +1210,7 @@ button.shopify-payment-button__button--unbranded,
 .customer button,
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  min-height: calc(3.8rem + var(--buttons-border-width) * 2);
 }
 
 .shopify-payment-button__button--branded {
@@ -1884,7 +1884,7 @@ input[type='checkbox'] {
   width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
   display: flex;
   border-radius: var(--inputs-radius);
-  min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);
+  min-height: calc((var(--inputs-border-width) * 2) + 3.8rem);
 }
 
 .quantity:after {
@@ -3714,6 +3714,41 @@ details-disclosure > details {
   content: '\f053';
 }
 
+
+.slick-vertical.slick-slider .slick-next:after,
+.slick-vertical.slick-slider .slick-prev:before {
+  content: '\f078';
+  position: absolute;
+  color: #a69e9e;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.slick-vertical.slick-slider .slick-prev:before {
+  content: '\f077';
+}
+
+.slick-vertical.slick-slider .slick-next{
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  bottom: 0;
+  top: auto;
+  transform: none;
+  background: linear-gradient(180deg, #FFFFFF00 0%, #00000012 64%, #0000003b 100%);
+}
+
+.slick-vertical.slick-slider .slick-prev{
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 24px;
+  top: 0;
+  transform: none;
+  background: linear-gradient(0deg, #FFFFFF00 0%, #00000012 64%, #0000003b 100%);
+}
 
 
 
