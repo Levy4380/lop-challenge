@@ -81,32 +81,35 @@
     "lop_product_PpPJhb": {
       "type": "lop-product",
       "blocks": {
+        "icon_with_text_xVHgzA": {
+          "type": "icon-with-text",
+          "settings": {
+            "icon_1": "truck",
+            "heading_1": "Lorem impsum",
+            "text_1": "<h5>Lorem ipsum dolor sit amet, consetetur<\/h5>"
+          }
+        },
         "icon_with_text_REjJzJ": {
           "type": "icon-with-text",
           "settings": {
-            "icon_1": "heart",
-            "heading_1": "Heading"
+            "icon_1": "box",
+            "heading_1": "Lorem impsum",
+            "text_1": "<h5>Lorem ipsum dolor sit amet, consetetur<\/h5>"
           }
         },
         "icon_with_text_DCfFrK": {
           "type": "icon-with-text",
           "settings": {
-            "icon_1": "heart",
-            "heading_1": "Heading"
-          }
-        },
-        "icon_with_text_xVHgzA": {
-          "type": "icon-with-text",
-          "settings": {
-            "icon_1": "truck",
-            "heading_1": "Lorem impsum"
+            "icon_1": "map_pin",
+            "heading_1": "Lorem impsum",
+            "text_1": "<h5>Lorem ipsum dolor sit amet, consetetur<\/h5>"
           }
         }
       },
       "block_order": [
+        "icon_with_text_xVHgzA",
         "icon_with_text_REjJzJ",
-        "icon_with_text_DCfFrK",
-        "icon_with_text_xVHgzA"
+        "icon_with_text_DCfFrK"
       ],
       "settings": {
         "show_collection_description": true,
@@ -118,6 +121,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
