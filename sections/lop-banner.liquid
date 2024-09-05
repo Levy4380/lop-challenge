@@ -1,0 +1,496 @@
+{{ 'section-lop-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="lop-banner-wrapper page-width isolate{% if section.settings.title == blank %} no-heading{% endif %} section-{{ section.id }}-padding">
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="lop-banner--title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        >
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+    <div class="blocks-container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'banner-with-slider' %}
+            <div class="banner-with-slider-wrapper block-item">
+              <div
+                class="slide-container 
+                  {% if block.settings.slide_image_1 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
+                style="--animation-order: 1;"
+              >
+                <div class="slide-image ">
+                  {% if block.settings.slide_image_1 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_1 %}
+                  {% else %}
+                    {{ 'collection-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}} ">
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_1 }}">{{ block.settings.slide_heading_1 }}</a>
+                </div>
+              </div>
+              <div
+                class="slide-container 
+                  {% if block.settings.slide_image_2 != blank %} 
+                    media-container
+                  {% else %} 
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
+                style="--animation-order: 2;"
+              >
+                <div class="slide-image ">
+                  {% if block.settings.slide_image_2 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_2 %}
+                  {% else %}
+                    {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_2 }}">{{ block.settings.slide_heading_2 }}</a>
+                </div>
+              </div>
+              <div
+                class="slide-container
+                  {% if block.settings.slide_image_3 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
+                style="--animation-order: 3;"
+              >
+                <div class="slide-image">
+                  {% if block.settings.slide_image_3 != blank %}
+                    {% render 'responsive-image', image: block.settings.slide_image_3 %}
+                  {% else %}
+                    {{ 'collection-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.slide_url_3 }}">{{ block.settings.slide_heading_3 }}</a>
+                </div>
+              </div>
+            </div>
+          {% when 'static-banner' %}
+            {% liquid
+              assign image_1_ratio = block.settings.banner_image_1.aspect_ratio
+              assign image_2_ratio = block.settings.banner_image_2.aspect_ratio
+              assign max_ratio = image_1_ratio
+
+              if image_2_ratio > block.settings.banner_image_1.aspect_ratio
+                assign max_ratio = image_2_ratio
+              endif
+            %}
+            <div
+              class="static-banner-container block-item {{ max_ratio }}"
+              id="static-banner--{{ forloop.index }}"
+              style="--placeholder-height: {{ 85 | divided_by: max_ratio  }}dvw"
+            >
+              <div
+                class="banner-container
+                  {% if block.settings.banner_image_1 != blank %}
+                    media-container
+                  {% else %}
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %} 
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
+                style="--animation-order: 1;"
+              >
+                <div class="banner-image ">
+                  {% if block.settings.banner_image_1 != blank %}
+                    {% render 'responsive-image', image: block.settings.banner_image_1 %}
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
+                  <a class="content-heading link" target="_blank" href="{{ block.settings.banner_url_1 }}">{{ block.settings.banner_heading_1 }}</a>
+                </div>
+              </div>
+              <div
+                class="banner-container
+                  {% if block.settings.banner_image_2 != blank %}
+                    media-container 
+                  {% else %} 
+                    --with-placeholder
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger animate--slide-in
+                  {% endif %}
+                "
+                style="--animation-order: 2;"
+              >
+                <div class="banner-image">
+                  {% if block.settings.banner_image_2 != blank %}
+                    {% render 'responsive-image', image: block.settings.banner_image_2 %}
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+                <div class="content vertical-alignment--{{block.settings.vertical_alignment}} lateral-alignment--{{block.settings.lateral_alignment}}">
+                  <a class="content-heading link" target="_blank" {% if block.settings.banner_url_2 != blank %} href="{{ block.settings.banner_url_2 }}" {% endif %}>{{ block.settings.banner_heading_2 }}</a>
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script defer="defer">
+  if (window.innerWidth < 991) {
+    $('.banner-with-slider-wrapper').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      mobileFirst: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Lop Banner",
+  "tag": "section",
+  "class": "lop-banner",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Titulo sección",
+      "label": "Titulo sección"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "square",
+      "label": "t:sections.collection-list.settings.image_ratio.label",
+      "info": "t:sections.collection-list.settings.image_ratio.info"
+    },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner-with-slider",
+      "name": "Banner con slider",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Primer slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_1",
+          "label": "Imagen"
+        },
+        {
+        "type": "text",
+        "id": "slide_heading_1",
+        "label": "Heading",
+        "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "slide_url_1",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Segundo slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_2",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "slide_heading_2",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "slide_url_2",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Tercer slide"
+        },
+        {
+          "type": "image_picker",
+          "id": "slide_image_3",
+          "label": "imagen 3"
+        },
+        {
+          "type": "text",
+          "id": "slide_heading_3",
+          "label": "Heading",
+          "default": "Lorem Ipsum"          
+        },
+        {
+          "type": "url",
+          "id": "slide_url_3",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "select",
+          "id": "vertical_alignment",
+          "options": [
+            {
+              "label": "Abajo",
+              "value": "bottom"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Arriba",
+              "value": "top"
+            }
+          ],
+          "default": "center",
+          "label": "Alineacion vertical"
+        },
+        {
+          "type": "select",
+          "id": "lateral_alignment",
+          "options": [
+            {
+              "label": "Izquierda",
+              "value": "left"
+            },
+            {
+              "label": "Centro",
+              "value": "center"
+            },
+            {
+              "label": "Derecha",
+              "value": "right"
+            }
+          ],
+          "default": "center",
+          "label": "Alineacion lateral"
+        }
+      ]
+    },
+    {
+      "type": "static-banner",
+      "name": "Banner estatico",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Primer banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image_1",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "banner_heading_1",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "banner_url_1",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "header",
+          "content": "Segundo banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image_2",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "banner_heading_2",
+          "label": "Heading",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "url",
+          "id": "banner_url_2",
+          "label": "Slide CTA"
+        },
+        {
+          "type": "select",
+          "id": "vertical_alignment",
+          "options": [
+            {
+              "label": "Abajo",
+              "value": "bottom"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Arriba",
+              "value": "top"
+            }
+          ],
+          "default": "center",
+          "label": "Alineacion vertical"
+        },
+        {
+          "type": "select",
+          "id": "lateral_alignment",
+          "options": [
+            {
+              "label": "Izquierda",
+              "value": "left"
+            },
+            {
+              "label": "Centro",
+              "value": "center"
+            },
+            {
+              "label": "Derecha",
+              "value": "right"
+            }
+          ],
+          "default": "center",
+          "label": "Alineacion lateral"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lop Banner",
+      "blocks": [
+        {
+          "type": "banner-with-slider"
+        },
+        {
+          "type": "static-banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

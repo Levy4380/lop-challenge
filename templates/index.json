@@ -1,5 +1,51 @@
 {
   "sections": {
+    "lop_banner_HifqUb": {
+      "type": "lop-banner",
+      "blocks": {
+        "banner_with_slider_LAq9kg": {
+          "type": "banner-with-slider",
+          "settings": {
+            "slide_image_1": "shopify:\/\/shop_images\/laundry.jpg",
+            "slide_heading_1": "Lorem Ipsum",
+            "slide_url_1": "https:\/\/lop.global\/",
+            "slide_image_2": "shopify:\/\/shop_images\/living.jpg",
+            "slide_heading_2": "Lorem Ipsum",
+            "slide_url_2": "https:\/\/lop.global\/",
+            "slide_image_3": "shopify:\/\/shop_images\/tablet-kitchen.jpg",
+            "slide_heading_3": "Lorem Ipsum",
+            "slide_url_3": "https:\/\/lop.global\/",
+            "vertical_alignment": "bottom",
+            "lateral_alignment": "center"
+          }
+        },
+        "static_banner_pDWrME": {
+          "type": "static-banner",
+          "settings": {
+            "banner_image_1": "shopify:\/\/shop_images\/kitchen.jpg",
+            "banner_heading_1": "Lorem Ipsum",
+            "banner_url_1": "https:\/\/lop.global\/",
+            "banner_image_2": "shopify:\/\/shop_images\/electronic.jpg",
+            "banner_heading_2": "Lorem Ipsum",
+            "banner_url_2": "https:\/\/lop.global\/",
+            "vertical_alignment": "center",
+            "lateral_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "banner_with_slider_LAq9kg",
+        "static_banner_pDWrME"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -26,6 +72,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -63,12 +110,13 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 44,
+        "padding_top": 20,
         "padding_bottom": 36
       }
     }
   },
   "order": [
+    "lop_banner_HifqUb",
     "image_banner",
     "featured_collection"
   ]

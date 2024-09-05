@@ -124,23 +124,60 @@
               </a>
             </h3>
           </div>
-          <div class="card__badge {{ settings.badge_position }}">
-            {%- if card_product.available == false -%}
+
+  
+          {% liquid
+            assign product_status = ''
+            assign creation_date = card_product.published_at | date:'%Y%m%d'
+            assign today_date = 'now' | date:'%Y%m%d'
+            assign product_age = today_date | minus: creation_date 
+            assign badge_position = settings.badge_position
+
+            if card_product.available == false
+              assign product_status = 'sold_out'
+            elsif card_product.compare_at_price > card_product.price and card_product.available 
+              assign product_status = 'on_sale'
+              assign badge_position = 'bottom right'
+            elsif product_age < 30
+              assign product_status = 'new'
+            endif
+          %}
+          {% if card_product.metafields.shipping.free_shipping %}
+            <div class="card__badge bottom left badge--free-shipping">
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
               >
-                {{- 'products.product.sold_out' | t -}}
+                {{- 'products.product.free_shipping' | t -}}
               </span>
-            {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-              <span
-                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-              >
-                {{- 'products.product.on_sale' | t -}}
-              </span>
-            {%- endif -%}
+            </div>
+          {% endif %}
+          <div class="card__badge {{ badge_position }} status--{{  product_status }}">
+            {% case product_status %}
+              {% when 'sold_out' %}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                >
+                  {{- 'products.product.sold_out' | t -}}
+                </span>
+              {% when 'on_sale' %}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                >
+                  {{- 'products.product.on_sale' | t -}}
+                </span>
+                {% when 'new' %}
+                  <span
+                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                  >
+                    {{- 'products.product.new' | t -}}
+                  </span>
+            {% endcase %}
           </div>
+
         </div>
       </div>
       <div class="card__content">
@@ -205,6 +242,11 @@
             {%- endif -%}
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            <div class="card__installments">
+              {% if card_product.metafields.payment.installments %}
+                {{- 'products.product.installments' | t -}}
+              {% endif %}
+            </div>
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
