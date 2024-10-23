@@ -1,0 +1,24 @@
+{% comment %}
+  Renders a badge showing the percentage of discount
+
+  Accepts:
+  - price: {Object} Product price
+  - sale_price: {Object} Product compare at price
+
+  Usage:
+  {% render 'discount-badge', price: product.compare_at_price, sale_price: product.price  %}
+{% endcomment %}
+
+{% liquid
+    assign max_price = price
+    assign discounted_price = sale_price
+    assign diff = max_price | minus : discounted_price
+    assign percentege_off = diff | times: 100 | divided_by: max_price  
+%}
+<div class="discount_badge">
+    <span
+      class="badge color-{{ settings.sale_badge_color_scheme }}"
+    >
+      {{ percentege_off | append: '% Off' }}
+    </span>
+  </div>

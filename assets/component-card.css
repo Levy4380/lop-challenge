@@ -125,7 +125,7 @@
 .card__content {
   display: grid;
   grid-template-rows: minmax(0, 1fr) max-content minmax(0, 1fr);
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   flex-grow: 1;
 }
@@ -494,7 +494,11 @@
   margin-top: 0;
 }
 
-.card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
+.card-information 
+  > *:not(.visually-hidden:first-child) 
+  + *:not(.rating):not(.card__information-volume-pricing-note) 
+  + *:not(.card__installments) 
+  + *:not(.price){
   margin-top: 0.7rem;
 }
 
@@ -592,4 +596,40 @@
   .grid__item:nth-child(8n) .product-card-wrapper:hover .shape--blob {
     clip-path: polygon(var(--shape--blob-5));
   }
+}
+
+
+/* lop changes */
+.card.card--card .card__heading{
+  font-size:1.5rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+}
+
+.card.card--card .card--media .card__inner .card__content {
+  padding: calc(var(--image-padding) + 1rem) 0;
+}
+
+
+.card.card--card .card__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.card--media.card--card .card__inner .card__content {
+  padding: calc(var(--image-padding) + 1rem) 0px;
+}
+
+.card .card__installments{
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  letter-spacing: 0px;
+  color: rgb(var(--color-grey-dark));
+  margin-top: 1rem;
+}
+
+.card.card--card .price{
+  margin-top: 2rem;
 }

@@ -49,9 +49,10 @@
   }
 }
 
+/* changed */
 .price--sold-out .price__availability,
 .price__regular {
-  display: block;
+  display: flex;
 }
 
 .price__sale,
@@ -73,9 +74,9 @@
   margin-left: 0.5rem;
 }
 
+/* changed */
 .price--on-sale .price__sale {
-  display: initial;
-  flex-direction: row;
+  display: flex;
   flex-wrap: wrap;
 }
 
@@ -99,3 +100,27 @@
   text-transform: uppercase;
   color: rgba(var(--color-foreground), 0.7);
 }
+
+
+/* lop changes */
+
+.price-item--regular,
+.price--on-sale .price-item--sale{
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+@media screen and (min-width: 990px) {
+  .price--on-sale .price-item--regular{
+    font-size: 1.8rem;
+  }
+}
+
+.price__sale{
+  flex-direction: column;
+} 
